@@ -1,1 +1,29 @@
-<p>listado works!</p>
+<div class="card border-success">
+  <div class="card-header">
+    <div class="card-title text-center">Listado de Estudiantes</div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" mat-flat-button [routerLink]="['/nuevo']">
+        CREAR NUEVO ESTUDIANTE
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    @if (isLoading()) {
+    <app-spinner [mensaje]="mensaje"></app-spinner>
+    } @else { @if (estudiante().length > 0) {
+    <h3 class="text-center text-primary">
+      Hay un total de {{ estudiante().length }} estudiantes
+    </h3>
+    <div class="row">
+      @for (estudiante of estudiante();track estudiante.id) {
+      <div class="col-md-4">
+        <app-estudiante-card [estudiante]="estudiante"></app-estudiante-card>
+      </div>
+      }
+    </div>
+    } @else {
+    <h3 class="text-center text-primary">No hay estudiantes registrados</h3>
+    } }
+  </div>
+</div>

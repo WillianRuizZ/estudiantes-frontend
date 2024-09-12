@@ -1,1 +1,15 @@
-<p>navbar works!</p>
+<div class="pos-f-t">
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 class="text-white ml-3">Estudiantes</h1>
+  </nav>
+
+  <div class="collapse" id="navbarToggleExternalContent" *ngIf="!isCollapsed">
+    <div class="bg-dark p-4">
+      <h4 class="text-white">Contenido colapsado</h4>
+      <span class="text-muted">Toggleable a través de la marca del navbar.</span>
+    </div>
+  </div>
+</div>

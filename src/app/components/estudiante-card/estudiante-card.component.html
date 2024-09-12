@@ -1,1 +1,51 @@
-<p>estudiante-card works!</p>
+<div class="container">
+  <mat-card class="estudiante-card">
+    <mat-card-header>
+      <mat-card-title>{{ estudiante.nombre }}</mat-card-title>
+      <mat-card-subtitle>{{ estudiante.curso }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="estudiante-info">
+        <p><strong>Documento:</strong> {{ estudiante.documento }}</p>
+        <p><strong>Edad:</strong> {{ estudiante.edad }}</p>
+        <p><strong>Género:</strong> {{ estudiante.genero }}</p>
+        <p><strong>Teléfono:</strong> {{ estudiante.telefono }}</p>
+        <p><strong>Email:</strong> {{ estudiante.email }}</p>
+      </div>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-actions align="end" class="d-flex justify-content-around">
+      <!-- Botón para ver detalles del estudiante -->
+      <button
+        mat-flat-button
+        color="primary"
+        [routerLink]="['/detalle', estudiante.id]"
+      >
+        <mat-icon>visibility</mat-icon>
+        Ver Detalles
+      </button>
+
+      <!-- Botón para editar el estudiante -->
+      <button
+        mat-stroked-button
+        color="accent"
+        class="m-2"
+        [routerLink]="['/editar', estudiante.id]"
+      >
+        Editar
+      </button>
+
+      <!-- Botón para eliminar el estudiante -->
+      <button
+        mat-flat-button
+        color="warn"
+        (click)="onDelete()"
+      >
+        Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

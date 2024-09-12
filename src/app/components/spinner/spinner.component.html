@@ -1,1 +1,14 @@
-<p>spinner works!</p>
+<div class="text-center">
+  <button class="btn btn-primary" [disabled]="true" type="button" aria-label="spinner">
+    <span class="spinner-border spinner-border-lg" role="status" aria-hidden="true"></span>
+  </button>
+  <h3 class="text-center">{{ mensaje.toUpperCase() }}</h3>
+
+  <!-- Mostrar el spinner -->
+  <mat-spinner *ngIf="cargando" class="mx-auto"></mat-spinner>
+
+  <svg width="100" height="100">
+    <!-- Contenido del SVG aquí -->
+    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+  </svg>
+</div>
