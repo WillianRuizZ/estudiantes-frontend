@@ -1,1 +1,29 @@
-<p>detalle works!</p>
+<!-- detalle.component.html -->
+@if (isLoading) {
+  <p>Cargando detalles del estudiante...</p>
+} @else {
+  @if (estudiante) {
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ estudiante.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ estudiante.curso }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>ID:</strong> {{ estudiante.id }}</p>
+        <p><strong>Documento:</strong> {{ estudiante.documento }}</p>
+        <p><strong>Edad:</strong> {{ estudiante.edad }}</p>
+        <p><strong>Género:</strong> {{ estudiante.genero }}</p>
+        <p><strong>Teléfono:</strong> {{ estudiante.telefono }}</p>
+        <p><strong>Email:</strong> {{ estudiante.email }}</p>
+      </mat-card-content>
+    </mat-card>
+  } @else {
+    <p>No se encontraron detalles del estudiante.</p>
+  }
+}
+
+<mat-card-actions class="jus">
+  <button mat-flat-button color="primary" [routerLink]="['/home']">
+    Volver <mat-icon>arrow_back</mat-icon>
+  </button>
+</mat-card-actions>

@@ -4,8 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { EstudianteCardComponent } from '../../components/estudiante-card/estudiante-card.component';
 import { RouterModule } from '@angular/router';
 import { EstudianteService } from '../../services/estudiante.service';
-import { Estudiante } from '../../interfaces';
+
 import { CommonModule } from '@angular/common';
+import { Estudiante } from '../../interfaces';
 
 @Component({
   standalone: true,
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './listado.component.html',
-  styleUrls: ['./listado.component.css'], 
+  styleUrls: ['./listado.component.css'],
 })
 export class ListadoComponent implements OnInit {
 

@@ -2,6 +2,6 @@ import { Estudiante } from "./estudiante.interface";
 
 export interface EstudianteResponse {
   isSuccess: boolean;
-  result: Estudiante[];
+  result: Estudiante;
   message: string;
 }

@@ -1,1 +1,115 @@
-<p>upsert works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card card-border-primary">
+        <div class="card-header">
+          <h3 class="card-title text-center text-success">
+            Formulario para {{ titulo }}
+          </h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formEstudiante" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
+              @if (formEstudiante.get('nombre')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('nombre')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                  @if (formEstudiante.get('nombre')?.errors?.['minlength']) {
+                    <p>El nombre debe tener al menos 5 caracteres</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="documento">Documento</label>
+              <input type="text" class="form-control" id="documento" formControlName="documento" placeholder="Ingrese su documento">
+              @if (formEstudiante.get('documento')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('documento')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                  @if (formEstudiante.get('documento')?.errors?.['pattern']) {
+                    <p>El documento debe ser un número</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="edad">Edad</label>
+              <input type="text" class="form-control" id="edad" formControlName="edad" placeholder="Ingrese su edad">
+              @if (formEstudiante.get('edad')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('edad')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                  @if (formEstudiante.get('edad')?.errors?.['pattern']) {
+                    <p>La edad debe ser un número válido</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="genero">Género</label>
+              <select class="form-control" id="genero" formControlName="genero">
+                <option value="">Seleccione un género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+              </select>
+              @if (formEstudiante.get('genero')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('genero')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" class="form-control" id="telefono" formControlName="telefono" placeholder="Ingrese su teléfono">
+              @if (formEstudiante.get('telefono')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('telefono')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                  @if (formEstudiante.get('telefono')?.errors?.['pattern']) {
+                    <p>El teléfono debe tener 10 dígitos</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Ingrese su email">
+              @if (formEstudiante.get('email')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('email')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                  @if (formEstudiante.get('email')?.errors?.['email']) {
+                    <p>Ingrese un email válido</p>
+                  }
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="curso">Curso</label>
+              <input type="text" class="form-control" id="curso" formControlName="curso" placeholder="Ingrese su curso">
+              @if (formEstudiante.get('curso')?.invalid) {
+                <div class="alert alert-danger">
+                  @if (formEstudiante.get('curso')?.errors?.['required']) {
+                    <p>Este campo es obligatorio</p>
+                  }
+                </div>
+              }
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!formEstudiante.valid">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

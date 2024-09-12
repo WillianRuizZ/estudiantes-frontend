@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CrearActualizar, EstudianteResponse } from '../interfaces';
+import { CrearActualizar, EstudianteResponse, EstudiantesResponse } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,9 @@ export class EstudianteService {
   private http = inject(HttpClient);
   constructor() { }
 
-  getEstudiantes(): Observable<EstudianteResponse> {
-    return this.http.get<EstudianteResponse>(`${this._baseURL}api/estudiantes`);
+   // Cambia el tipo de retorno a EstudiantesResponse
+   getEstudiantes(): Observable<EstudiantesResponse> {
+    return this.http.get<EstudiantesResponse>(`${this._baseURL}api/estudiantes`);
   }
 
   getEstudiante(id: string): Observable<EstudianteResponse> {
@@ -21,8 +22,7 @@ export class EstudianteService {
     );
   }
 
-  postEstudiante(
-    nuevoEstudiante: CrearActualizar): Observable<EstudianteResponse> {
+  postEstudiante(nuevoEstudiante: CrearActualizar): Observable<EstudianteResponse> {
     return this.http.post<EstudianteResponse>(
       `${this._baseURL}api/estudiantes`,
       nuevoEstudiante
